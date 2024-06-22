@@ -1,0 +1,1354 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?>
+<GeneradorEAs version="9.4.7">
+<var type="INT">
+<name>DDStop</name>
+<value>0</value>
+<exported>true</exported>
+<exportedname>DDStop</exportedname>
+<exportedsource>USUARIO</exportedsource>
+</var>
+<var type="INT">
+<name>VALOR_ADX_ENTRADA</name>
+<value>10</value>
+<exported>true</exported>
+<exportedname>VALOR_ADX_ENTRADA</exportedname>
+<exportedsource>USUARIO</exportedsource>
+</var>
+<var type="INT">
+<name>VALOR_CLOSE_COMPRA</name>
+<value>0</value>
+<exported>true</exported>
+<exportedname>DIAS_CLOSE_COMPRA</exportedname>
+<exportedsource>USUARIO</exportedsource>
+</var>
+<var type="INT">
+<name>VALOR_CLOSE_VENTA</name>
+<value>0</value>
+<exported>true</exported>
+<exportedname>DIAS_CLOSE_VENTA</exportedname>
+<exportedsource>USUARIO</exportedsource>
+</var>
+<var type="INT">
+<name>period</name>
+<value>14</value>
+<exported>true</exported>
+<exportedname>period_ADX</exportedname>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+<var type="STOPLOSS">
+<name>StopLoss</name>
+<value>0</value>
+<exported>true</exported>
+<exportedname>StopLoss_BUY_1</exportedname>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+<var type="STOPLOSS">
+<name>StopLoss</name>
+<value>0</value>
+<exported>true</exported>
+<exportedname>StopLoss_SELL_1</exportedname>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+<var type="DOUBLE">
+<name>Lote</name>
+<value>0.1</value>
+<exported>true</exported>
+<exportedname>Lote_SELL_1</exportedname>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+<var type="DOUBLE">
+<name>Lote</name>
+<value>0.1</value>
+<exported>true</exported>
+<exportedname>Lote_BUY_1</exportedname>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+<var type="DOUBLE">
+<name>RATIO_SL_TP</name>
+<value>0.0</value>
+<exported>true</exported>
+<exportedname>RATIO_SL_TP</exportedname>
+<exportedsource>USUARIO</exportedsource>
+</var>
+<var type="TAKEPROFIT">
+<name>TakeProfit</name>
+<value>0</value>
+<exported>true</exported>
+<exportedname>TakeProfit_BUY_1</exportedname>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+<var type="TAKEPROFIT">
+<name>TakeProfit</name>
+<value>0</value>
+<exported>true</exported>
+<exportedname>TakeProfit_SELL_1</exportedname>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+<terminator class="Cada nueva vela" id="1" message="Cada nueva vela">
+<position>
+<bounds>
+<x>744</x>
+<y>406</y>
+<height>40</height>
+<width>138</width>
+</bounds>
+<inanchor>
+<x>1</x>
+<y>0</y>
+</inanchor>
+<outanchor>
+<x>1</x>
+<y>2</y>
+</outanchor>
+</position>
+<properties>
+<property type="NOMBREDELEA">
+<name>NombreDelEA</name>
+<value>RB_OIL_KD_V0.1</value>
+<parameters>
+<var type="STRING">
+<name>NombreDelEA</name>
+<value>RB_OIL_KD_V0.1</value>
+<exported>false</exported>
+<exportedname>NombreDelEA_</exportedname>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+</parameters>
+</property>
+<property type="SLIPPAGE">
+<name>Slippage</name>
+<value>1</value>
+<parameters>
+<var type="INT">
+<name>Slippage</name>
+<value>1</value>
+<exported>false</exported>
+<exportedname>Slippage_</exportedname>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+</parameters>
+</property>
+<property type="BOOL">
+<name>IgnoreFirstCandle</name>
+<value>false</value>
+<parameters>
+<var type="BOOL">
+<name>IgnoreFirstCandle</name>
+<value>false</value>
+<exported>false</exported>
+<exportedname>IgnoreFirstCandle</exportedname>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+</parameters>
+</property>
+<property type="INT">
+<name>MagicNumber</name>
+<value>0</value>
+<parameters>
+<var type="INT">
+<name>MagicNumber</name>
+<value>0</value>
+<exported>false</exported>
+<exportedname>MagicNumber_</exportedname>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+</parameters>
+</property>
+</properties>
+</terminator>
+<decision class="Análisis Técnico Múltiple AND" id="2" message="ADX&gt;10 (CLOSE(1)-CLOSE(65)&gt;0">
+<position>
+<bounds>
+<x>504</x>
+<y>666</y>
+<height>60</height>
+<width>309</width>
+</bounds>
+<inanchor>
+<x>1</x>
+<y>0</y>
+</inanchor>
+<outanchor>
+<x>1</x>
+<y>2</y>
+</outanchor>
+<noanchor>
+<x>2</x>
+<y>1</y>
+</noanchor>
+</position>
+<properties>
+<property type="INDICATOR">
+<name>Funcion1_1</name>
+<value>iADX( NULL, 0, period_ADX, 0, 0, 1)</value>
+<parameters>
+<var type="STRING">
+<name>Symbol</name>
+<value>NULL</value>
+<exported>false</exported>
+<exportedname/>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+<var type="PERIOD">
+<name>Timeframe</name>
+<value>Timeframe actual</value>
+<exported>false</exported>
+<exportedname/>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+<var type="INT">
+<name>period</name>
+<value>14</value>
+<exported>true</exported>
+<exportedname>period_ADX</exportedname>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+<var type="APPLIEDPRICE">
+<name>applied_price</name>
+<value>Close</value>
+<exported>false</exported>
+<exportedname/>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+<var type="MODE">
+<name>mode</name>
+<value>0</value>
+<exported>false</exported>
+<exportedname/>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+<var type="INT">
+<name>Shift</name>
+<value>1</value>
+<exported>false</exported>
+<exportedname/>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+</parameters>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_1</name>
+<value>&gt;</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_1</name>
+<value>VALOR_ADX_ENTRADA</value>
+<parameters>
+<var type="INT">
+<name>VALOR_ADX_ENTRADA</name>
+<value>0</value>
+<exported>true</exported>
+<exportedname>VALOR_ADX_ENTRADA</exportedname>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+</parameters>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_2</name>
+<value>iClose(NULL, 0, 1)</value>
+<parameters>
+<var type="STRING">
+<name>Symbol</name>
+<value>NULL</value>
+<exported>false</exported>
+<exportedname/>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+<var type="PERIOD">
+<name>Timeframe</name>
+<value>Timeframe actual</value>
+<exported>false</exported>
+<exportedname/>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+<var type="INT">
+<name>Vela</name>
+<value>1</value>
+<exported>false</exported>
+<exportedname/>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+</parameters>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_2</name>
+<value>&gt;</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_2</name>
+<value>iClose(NULL, 0, DIAS_CLOSE_COMPRA)</value>
+<parameters>
+<var type="STRING">
+<name>Symbol</name>
+<value>NULL</value>
+<exported>false</exported>
+<exportedname/>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+<var type="PERIOD">
+<name>Timeframe</name>
+<value>Timeframe actual</value>
+<exported>false</exported>
+<exportedname/>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+<var type="INT">
+<name>Vela</name>
+<value>1</value>
+<exported>true</exported>
+<exportedname>DIAS_CLOSE_COMPRA</exportedname>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+</parameters>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_3</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_3</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_3</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_4</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_4</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_4</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_5</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_5</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_5</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_6</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_6</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_6</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_7</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_7</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_7</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_8</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_8</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_8</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_9</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_9</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_9</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_10</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_10</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_10</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_11</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_11</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_11</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_12</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_12</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_12</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_13</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_13</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_13</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_14</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_14</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_14</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_15</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_15</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_15</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_16</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_16</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_16</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_17</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_17</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_17</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_18</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_18</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_18</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_19</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_19</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_19</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_20</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_20</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_20</name>
+<value/>
+<parameters/>
+</property>
+</properties>
+</decision>
+<decision class="Análisis Técnico Múltiple AND" id="4" message="ADX&gt;10 (CLOSE(1)-CLOSE(65)&gt;0">
+<position>
+<bounds>
+<x>824</x>
+<y>666</y>
+<height>60</height>
+<width>309</width>
+</bounds>
+<inanchor>
+<x>1</x>
+<y>0</y>
+</inanchor>
+<outanchor>
+<x>1</x>
+<y>2</y>
+</outanchor>
+<noanchor>
+<x>2</x>
+<y>1</y>
+</noanchor>
+</position>
+<properties>
+<property type="INDICATOR">
+<name>Funcion1_1</name>
+<value>iADX( NULL, 0, period_ADX, 0, 0, 1)</value>
+<parameters>
+<var type="STRING">
+<name>Symbol</name>
+<value>NULL</value>
+<exported>false</exported>
+<exportedname/>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+<var type="PERIOD">
+<name>Timeframe</name>
+<value>Timeframe actual</value>
+<exported>false</exported>
+<exportedname/>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+<var type="INT">
+<name>period</name>
+<value>14</value>
+<exported>true</exported>
+<exportedname>period_ADX</exportedname>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+<var type="APPLIEDPRICE">
+<name>applied_price</name>
+<value>Close</value>
+<exported>false</exported>
+<exportedname/>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+<var type="MODE">
+<name>mode</name>
+<value>0</value>
+<exported>false</exported>
+<exportedname/>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+<var type="INT">
+<name>Shift</name>
+<value>1</value>
+<exported>false</exported>
+<exportedname/>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+</parameters>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_1</name>
+<value>&gt;</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_1</name>
+<value>VALOR_ADX_ENTRADA</value>
+<parameters>
+<var type="INT">
+<name>VALOR_ADX_ENTRADA</name>
+<value>0</value>
+<exported>true</exported>
+<exportedname>VALOR_ADX_ENTRADA</exportedname>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+</parameters>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_2</name>
+<value>iClose(NULL, 0, 1)</value>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_2</name>
+<value>&lt;</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_2</name>
+<value>iClose(NULL, 0, DIAS_CLOSE_VENTA)</value>
+<parameters>
+<var type="STRING">
+<name>Symbol</name>
+<value>NULL</value>
+<exported>false</exported>
+<exportedname/>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+<var type="PERIOD">
+<name>Timeframe</name>
+<value>Timeframe actual</value>
+<exported>false</exported>
+<exportedname/>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+<var type="INT">
+<name>Vela</name>
+<value>1</value>
+<exported>true</exported>
+<exportedname>DIAS_CLOSE_VENTA</exportedname>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+</parameters>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_3</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_3</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_3</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_4</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_4</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_4</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_5</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_5</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_5</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_6</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_6</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_6</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_7</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_7</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_7</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_8</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_8</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_8</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_9</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_9</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_9</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_10</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_10</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_10</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_11</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_11</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_11</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_12</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_12</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_12</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_13</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_13</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_13</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_14</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_14</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_14</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_15</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_15</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_15</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_16</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_16</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_16</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_17</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_17</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_17</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_18</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_18</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_18</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_19</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_19</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_19</name>
+<value/>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion1_20</name>
+<value/>
+<parameters/>
+</property>
+<property type="COMPARATOR">
+<name>Comparador_20</name>
+<value>==</value>
+<parameters/>
+</property>
+<property type="INDICATOR">
+<name>Funcion2_20</name>
+<value/>
+<parameters/>
+</property>
+</properties>
+</decision>
+<process class="Abrir compra" id="3" message="BUY_1">
+<position>
+<bounds>
+<x>595</x>
+<y>842</y>
+<height>40</height>
+<width>71</width>
+</bounds>
+<inanchor>
+<x>1</x>
+<y>0</y>
+</inanchor>
+<outanchor>
+<x>1</x>
+<y>2</y>
+</outanchor>
+</position>
+<properties>
+<property type="ORDERNAME">
+<name>NombreOrden</name>
+<value>BUY_1</value>
+<parameters/>
+</property>
+<property type="STOPLOSS">
+<name>StopLoss</name>
+<value>0</value>
+<parameters>
+<var type="STOPLOSS">
+<name>StopLoss</name>
+<value>0</value>
+<exported>true</exported>
+<exportedname>StopLoss_BUY_1</exportedname>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+</parameters>
+</property>
+<property type="INDICATOR">
+<name>StopLossIndi</name>
+<value>0</value>
+<parameters/>
+</property>
+<property type="TAKEPROFIT">
+<name>TakeProfit</name>
+<value>0</value>
+<parameters>
+<var type="TAKEPROFIT">
+<name>TakeProfit</name>
+<value>0</value>
+<exported>true</exported>
+<exportedname>TakeProfit_BUY_1</exportedname>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+</parameters>
+</property>
+<property type="INDICATOR">
+<name>TakeProfitIndi</name>
+<value>0</value>
+<parameters>
+<var type="INT">
+<name>Valor</name>
+<value>0</value>
+<exported>false</exported>
+<exportedname/>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+</parameters>
+</property>
+<property type="MONEYMANAGEMENT">
+<name>AplicarGestionDinero</name>
+<value>getFixedLot( Lote_BUY_1 )</value>
+<parameters>
+<var type="DOUBLE">
+<name>Lote</name>
+<value>0.1</value>
+<exported>true</exported>
+<exportedname>Lote_BUY_1</exportedname>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+</parameters>
+</property>
+<property type="STRING">
+<name>Instrumento</name>
+<value/>
+<parameters>
+<var type="STRING">
+<name>Instrumento</name>
+<value>0</value>
+<exported>false</exported>
+<exportedname>Instrumento</exportedname>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+</parameters>
+</property>
+<property type="INT">
+<name>PorcentajeMargen</name>
+<value>0</value>
+<parameters>
+<var type="INT">
+<name>PorcentajeMargen</name>
+<value>0</value>
+<exported>false</exported>
+<exportedname>PorcentajeMargen</exportedname>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+</parameters>
+</property>
+</properties>
+</process>
+<process class="Abrir venta" id="5" message="SELL_1">
+<position>
+<bounds>
+<x>935</x>
+<y>842</y>
+<height>40</height>
+<width>74</width>
+</bounds>
+<inanchor>
+<x>1</x>
+<y>0</y>
+</inanchor>
+<outanchor>
+<x>1</x>
+<y>2</y>
+</outanchor>
+</position>
+<properties>
+<property type="ORDERNAME">
+<name>NombreOrden</name>
+<value>SELL_1</value>
+<parameters/>
+</property>
+<property type="STOPLOSS">
+<name>StopLoss</name>
+<value>0</value>
+<parameters>
+<var type="STOPLOSS">
+<name>StopLoss</name>
+<value>0</value>
+<exported>true</exported>
+<exportedname>StopLoss_SELL_1</exportedname>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+</parameters>
+</property>
+<property type="INDICATOR">
+<name>StopLossIndi</name>
+<value>0</value>
+<parameters/>
+</property>
+<property type="TAKEPROFIT">
+<name>TakeProfit</name>
+<value>0</value>
+<parameters>
+<var type="TAKEPROFIT">
+<name>TakeProfit</name>
+<value>0</value>
+<exported>true</exported>
+<exportedname>TakeProfit_SELL_1</exportedname>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+</parameters>
+</property>
+<property type="INDICATOR">
+<name>TakeProfitIndi</name>
+<value>0</value>
+<parameters>
+<var type="INT">
+<name>Valor</name>
+<value>0</value>
+<exported>false</exported>
+<exportedname/>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+</parameters>
+</property>
+<property type="MONEYMANAGEMENT">
+<name>AplicarGestionDinero</name>
+<value>getFixedLot( Lote_SELL_1 )</value>
+<parameters>
+<var type="DOUBLE">
+<name>Lote</name>
+<value>0.1</value>
+<exported>true</exported>
+<exportedname>Lote_SELL_1</exportedname>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+</parameters>
+</property>
+<property type="STRING">
+<name>Instrumento</name>
+<value/>
+<parameters>
+<var type="STRING">
+<name>Instrumento</name>
+<value>0</value>
+<exported>false</exported>
+<exportedname>Instrumento</exportedname>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+</parameters>
+</property>
+<property type="INT">
+<name>PorcentajeMargen</name>
+<value>0</value>
+<parameters>
+<var type="INT">
+<name>PorcentajeMargen</name>
+<value>0</value>
+<exported>false</exported>
+<exportedname>PorcentajeMargen</exportedname>
+<exportedsource>BLOQUE</exportedsource>
+</var>
+</parameters>
+</property>
+</properties>
+</process>
+<process class="bloque de codigo" id="12" message="TakeProfit_BUY_1=StopLoss_BUY_1*RATIO_SL_TP;">
+<position>
+<bounds>
+<x>464</x>
+<y>806</y>
+<height>40</height>
+<width>354</width>
+</bounds>
+<inanchor>
+<x>1</x>
+<y>0</y>
+</inanchor>
+<outanchor>
+<x>1</x>
+<y>2</y>
+</outanchor>
+</position>
+<properties>
+<property type="MQLEDITOR">
+<name>codigo</name>
+<value>TakeProfit_BUY_1=StopLoss_BUY_1*RATIO_SL_TP;</value>
+<parameters/>
+</property>
+</properties>
+</process>
+<process class="bloque de codigo" id="13" message="TakeProfit_SELL_1=StopLoss_SELL_1*RATIO_SL_TP;">
+<position>
+<bounds>
+<x>844</x>
+<y>806</y>
+<height>40</height>
+<width>360</width>
+</bounds>
+<inanchor>
+<x>1</x>
+<y>0</y>
+</inanchor>
+<outanchor>
+<x>1</x>
+<y>2</y>
+</outanchor>
+</position>
+<properties>
+<property type="MQLEDITOR">
+<name>codigo</name>
+<value>TakeProfit_SELL_1=StopLoss_SELL_1*RATIO_SL_TP;</value>
+<parameters/>
+</property>
+</properties>
+</process>
+<process class="bloque de codigo" id="14" message="asterisco AMARILLO">
+<position>
+<bounds>
+<x>247</x>
+<y>790</y>
+<height>40</height>
+<width>163</width>
+</bounds>
+<inanchor>
+<x>1</x>
+<y>0</y>
+</inanchor>
+<outanchor>
+<x>1</x>
+<y>2</y>
+</outanchor>
+</position>
+<properties>
+<property type="MQLEDITOR">
+<name>codigo</name>
+<value>static int contadorSYS_B_123456_m;&#13;
+   &#13;
+   ObjectCreate(ChartID(),"ArrowSYS_B_123456_m"+ contadorSYS_B_123456_m,OBJ_ARROW_STOP,0,Time[0],High[0]+2000*Point);&#13;
+  ObjectSetInteger(ChartID(),"ArrowSYS_B_123456_m" + contadorSYS_B_123456_m,OBJPROP_COLOR,clrYellow&#13;
+&#13;
+);//cambiar color&#13;
+ &#13;
+    contadorSYS_B_123456_m++;</value>
+<parameters/>
+</property>
+</properties>
+</process>
+<process class="bloque de codigo" id="15" message="asterisco naranja">
+<position>
+<bounds>
+<x>1260</x>
+<y>800</y>
+<height>40</height>
+<width>141</width>
+</bounds>
+<inanchor>
+<x>1</x>
+<y>0</y>
+</inanchor>
+<outanchor>
+<x>1</x>
+<y>2</y>
+</outanchor>
+</position>
+<properties>
+<property type="MQLEDITOR">
+<name>codigo</name>
+<value>static int contadorSYS_B_1234567_m;&#13;
+   &#13;
+   ObjectCreate(ChartID(),"ArrowSYS_B_1234567_m"+ contadorSYS_B_1234567_m,OBJ_ARROW_STOP,0,Time[0],High[0]+2500*Point);&#13;
+  ObjectSetInteger(ChartID(),"ArrowSYS_B_1234567_m" + contadorSYS_B_1234567_m,OBJPROP_COLOR,clrOrange&#13;
+&#13;
+);//cambiar color&#13;
+ &#13;
+    contadorSYS_B_1234567_m++;</value>
+<parameters/>
+</property>
+</properties>
+</process>
+<Path>
+<sourceId>12</sourceId>
+<sourceIdType>0</sourceIdType>
+<targetId>3</targetId>
+</Path>
+<Path>
+<sourceId>13</sourceId>
+<sourceIdType>0</sourceIdType>
+<targetId>5</targetId>
+</Path>
+<text class="Text" id="17" message="SE HACE CON CODIGO YA QUE AL SER UNA VARIABLE CREADO POR LA PLATAFORMA NO SALE EN VARIABLE EXTERNA">
+<position>
+<bounds>
+<x>249</x>
+<y>936</y>
+<height>40</height>
+<width>828</width>
+</bounds>
+<inanchor>
+<x>1</x>
+<y>0</y>
+</inanchor>
+<outanchor>
+<x>1</x>
+<y>2</y>
+</outanchor>
+</position>
+<properties/>
+</text>
+<Path>
+<sourceId>1</sourceId>
+<sourceIdType>0</sourceIdType>
+<targetId>2</targetId>
+</Path>
+<Path>
+<sourceId>1</sourceId>
+<sourceIdType>0</sourceIdType>
+<targetId>4</targetId>
+</Path>
+<Path>
+<sourceId>2</sourceId>
+<sourceIdType>0</sourceIdType>
+<targetId>12</targetId>
+</Path>
+<Path>
+<sourceId>4</sourceId>
+<sourceIdType>0</sourceIdType>
+<targetId>13</targetId>
+</Path>
+</GeneradorEAs>
